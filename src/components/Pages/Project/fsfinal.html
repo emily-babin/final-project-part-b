@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="Project.scss" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <title>FS Final</title>
+</head>
+
+    <body>
+        <h2>Project Part A: Basics (70%)</h2>
+
+        <mark class="todo">For this project, you will create the CRUD functionality for an inventory system. <br> You will build the following functionality:</mark>
+
+        <ul>
+            <li></li>
+        </ul>
+
+
+        Categories => you will require the category name (and id which will be managed via an auto incrementing primary key). Build the CRUD functionality to manage categories
+        Items => you will be required to store the category_id, title, description, price, quantity, and sku. Category must appear as a drop-down selection for the user. Build the CRUD functionality to manage items
+        Storefront => Build a storefront page for your site. Include a banner image and list of your items in a grid layout (Title, Category, Description, Price).
+        Use react router to load the content for each of the 3 pages described above.
+
+        <ul>
+            <li><mark class="done">You will create a category entry form (/categories/create) where you will display a form to add a new product category.</mark> </li>
+            <li><mark class="done">The form will go to /categories/ where you will check to see that the category name is not empty and is not already in the database.</mark> </li>
+            <li><mark class="done">If there is an error, redisplay the form with the value you entered in the previous form </mark><mark class="done"> along with an error message.</mark> </li>
+            <li><mark class="done">If the field is OK, enter the item in the database and redirect to /categories/.</mark></li>
+        </ul>        
+
+        <br>
+        <h3><mark class="done">Part 2</mark></h3>
+        <hr><br>
+
+        <ul>
+            <li><mark class="done">You will create a master list of categories (/categories/) where you will display the category names with an edit button beside each within a table.</mark></li>
+            <li><mark class="done">When you click on the button, you will be brought to an edit page (/categories/{id}/edit) where all the fields in the database are pre-filled in the form.</mark></li>
+            <li><mark class="done">Your form will go to /categories/{id} using the PATCH method.</mark> </li>
+            <li><mark class="done">You will do the same error-checking you did for adding a category.</mark> </li>
+            <li><mark class="done">If there are no errors, update the database entry with the new values.</mark> </li>
+            <li><mark class="done">Also included on the /categories/ page is a link to add a new category.</mark></li>
+        </ul>
+
+        <br>
+        <h3><mark class="done">Part 3</mark></h3>
+        <hr><br>
+
+        <ul>
+            <li><mark class="done">You will create a product entry form (/items/create) where you will display a form to add a new item to your database.</mark> </li>
+            <li><mark class="done">Required fields are: category(id from categories), title, description, price, quantity, sku, and picture.</mark> </li>
+            <li><mark class="done">The form will go to /items/ using the POST method where you will be check to see that no field is left empty.</mark>  </li>
+            <li><mark class="done">If any field is empty, redisplay the form with the values you entered in the previous form (with the exception of the picture field).</mark> </li>
+            <li><mark class="done">Display an error beside any field that is in error.</mark>  </li>
+            <li><mark class="done">If the fields are ok, enter the item into the database, move the image to an images folder on your web server, and redirect to /items/.</mark></li>
+        </ul>
+        
+        <br>
+        <h3><mark class="done">Part 4</mark></h3>
+        <hr><br>
+        
+        <ul>
+            <li><mark class="done">You will create a master list of products (/items/) where you will display the item's name with an edit and delete button beside each within a table.</mark> </li>
+            <li><mark class="done">This page will also contain a link to add a new item.</mark> </li>
+            <li><mark class="done">When you click on the edit button, you will be brought to an edit page (/items/{id}/edit) where all the fields in the database are pre-filled in the form.</mark> </li>
+            <li><mark class="done">Your form will go to /items/{id} using the PATCH method.</mark> </li>
+            <li><mark class="done">You will do the same error-checking you did for adding an item.</mark> </li>
+            <li><mark class="done">If there are no errors, update the database entry with the new values.</mark>  </li>
+            <li><mark class="done">When you click on the delete button, you will need to confirm that you intend to delete the item (use javascript).</mark></li>
+            <li><mark class="done">If you confirm the delete, you will go to /items/{id} using the DELETE method, soft delete the item from the database and redirect to /items/. Also, delete the image from the images folder</mark></li>
+            
+        </ul>
+
+        <br>
+
+        <mark class="todo"><strong>NOTE: </strong>Don't forget to include an export of your database</mark>
+        <ul>
+            <li class="none"><mark class="unfinished">Unfinished - Skipped</mark></li>
+            <li class="none"><mark class="todo">To-Do - Haven't Started</mark></li>
+            <li class="none"><mark class="working">Started</mark></li>
+            <li class="none"><mark class="done">Done</mark></li>
+            <li class="none"><mark class="doneithink">Done? Needs to be tested to be sure</mark></li>
+        </ul>
+   </body>
+</html>

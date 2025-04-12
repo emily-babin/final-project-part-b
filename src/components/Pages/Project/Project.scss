@@ -1,0 +1,135 @@
+/* --------------------------------- */
+/* Dark Theme */
+/* --------------------------------- */
+.dark {
+    background-color: #252526;
+    color: #CCCCCC;
+}
+
+/* Red */
+.dark .unfinished {
+    background-color: #cc656680;
+    color: #252526;
+}
+
+/* Orange */
+.dark .todo {
+    background-color: #de935f80;
+    color: #252526;
+}
+
+/* Yellow */
+.dark .working {
+    background-color: #f0c67480;;
+    color: #252526;
+}
+
+/* Green */
+.dark .done {
+    background-color: #a5ac6180;
+    color: #252526;
+}
+
+/* Blue */
+.dark .doneithink {
+    background-color: #8abeb780;
+    color: #252526;
+}
+
+/* --------------------------------- */
+/* Light Theme */
+/* --------------------------------- */
+/* Red */
+.light .unfinished {
+    background-color: #f39990;
+}
+
+/* Orange */
+.light .todo {
+    background-color: #f3c490;
+}
+
+/* Yellow */
+.light .working {
+    background-color: #f3ef8c;
+}
+
+/* Green */
+.light .done {
+    background-color: #a0e0a5;
+}
+
+/* Blue */
+.light .doneithink {
+    /* Basically: I think this deserves a done but needs to be tested to be sure */
+    background-color: #90d5f3;
+}
+
+/* Unordered List No Bullets */
+.none {
+    list-style: none;
+}
+
+body {
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    
+    
+}
+
+/* I have no idea why I cannot put this in with the rest of the body :) */
+body {
+    font-size: 20px;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+ul > li {
+    list-style-type: circle;
+}
+
+mark {
+    background-color: transparent;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+/* Changing background of every second record to make it easier to read */
+tr:nth-child(even) {background-color: #eae2f5;}
+
+/* Lengthening the form fields to be the same */
+.doublewidth {width: 294px;}
+.singlewidth {width: 147px;}
+
+/* Turning Form and Database to columns for easier viewing */
+/* (I got tired of scrolling) */
+.column {
+    float: left;
+    padding: 10px;
+}
+
+.left { width: 50%;}
+.right {width: 50%;}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+* {box-sizing: border-box;}
+
+h2 {
+    margin-left: -15px;
+}
