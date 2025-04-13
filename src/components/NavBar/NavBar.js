@@ -10,17 +10,18 @@ const NavBar = () => {
   return (
     <div className="navbar row align-items-center justify-content-between px-4 py-2">
 
-      {/* LOGO */}
-      <div className="col-auto">
-        <Link to="/">
-          <img src='/images/pokeball.png' alt="Home" className="navbar-logo" />
-        </Link>
-      </div>
+       {/* LOGO + TITLE (Grouped Together) */}
+        <div className="col d-flex align-items-center">
+          <Link to="/">
+            <img src='/images/pokeball.png' alt="Home" className="navbar-logo me-2" />
+          </Link>
+          <NavLink to="/" className='title'>
+              React Final Project
+          </NavLink>
+    
+          
+        </div>
 
-      {/* TITLE */}
-      <div className="col text-center">
-        <h1 className="m-0">React Final Project</h1>
-      </div>
 
       {/* LINKS */}
       <div className="col-auto">

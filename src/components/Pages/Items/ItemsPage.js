@@ -7,8 +7,6 @@ import AddItemForm from '../../Forms/Items/AddItemForm';
 import EditItemForm from '../../Forms/Items/EditItemForm';
 
 const ItemsPage = (props) => {    
-
-    const [setItemName] = useState('');
     const [selectedItem, setSelectedItem] = useState({});
 
     const [items, setItems] = useState([]);
@@ -34,7 +32,6 @@ const ItemsPage = (props) => {
     // EditItem
     const _editItem = item => {
         setSelectedItem(item);
-        setItemName(item.TITLE); 
         setEditing(true);
     };
 

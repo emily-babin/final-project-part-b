@@ -10,6 +10,9 @@ const AddItemForm = (props) => {
     const [itemDescription, setItemDescription] = useState("");
     const [itemPrice, setItemPrice] = useState("");
     const [itemSKU, setItemSKU] = useState("");
+    const [imageFile, setImageFile] = useState(null);
+    const [imageUrl, setImageUrl] = useState('');
+
 
     // Detects when a value has changed in one of the fields,
     // allows ability to type into the text fields
@@ -32,19 +35,50 @@ const AddItemForm = (props) => {
 
     // Triggers the onAddItem prop, passing in all of the fields of the
     // item through the newItem constant. Clears fields afterwards
-    const _add = () => {
+    const _add = async () => {
+        let uploadedImageUrl = imageUrl;
+    
+        // Step 1: Upload the image if present
+        if (imageFile) {
+            const formData = new FormData();
+            formData.append('image', imageFile);
+    
+            try {
+                const uploadRes = await fetch('http://localhost:3001/upload', {
+                    method: 'POST',
+                    body: formData,
+                });
+    
+                const uploadData = await uploadRes.json();
+    
+                if (uploadData.success) {
+                    uploadedImageUrl = uploadData.imageUrl;
+                    setImageUrl(uploadData.imageUrl);
+                } else {
+                    alert("Image upload failed.");
+                    return;
+                }
+            } catch (err) {
+                console.error("Image upload error:", err);
+                alert("Image upload error.");
+                return;
+            }
+        }
+    
+        // Step 2: Send item data including image URL
         const newItem = {
             TITLE: itemName,
             CATEGORY_ID: categoryID,
             DESCRIPTION: itemDescription,
             PRICE: itemPrice,
-            SKU: itemSKU
+            SKU: itemSKU,
+            IMAGE_URL: uploadedImageUrl,
         };
-
+    
         props.onAddItem(newItem);
         _clear();
+    };
     
-    }
 
     // Clearing the input fields
     const _clear = () => {
@@ -53,7 +87,10 @@ const AddItemForm = (props) => {
         setItemDescription('');
         setItemPrice('');
         setItemSKU('');
-    }
+        setImageFile(null);
+        setImageUrl('');
+    };
+    
 
     return (
         <div className="container mt-3">
@@ -113,6 +150,28 @@ const AddItemForm = (props) => {
                         value={itemSKU}
                         onChange={(e) => _detectValueChanged('sku', e.target.value)}
                     />
+
+                    {/* Item Image Upload */}
+                    <div className="mb-3 text-start">
+                    <input
+                        type="file"
+                        className="form-control"
+                        accept="image/*"
+                        onChange={(e) => setImageFile(e.target.files[0])}
+                    />
+                    </div>
+
+                    {imageFile && (
+                        <div className="mt-2">
+                            <img
+                                src={URL.createObjectURL(imageFile)}
+                                alt="Preview"
+                                style={{ maxWidth: '200px', borderRadius: '10px' }}
+                            />
+                        </div>
+                    )}
+
+
 
                     <div className="d-flex justify-content-end">
 

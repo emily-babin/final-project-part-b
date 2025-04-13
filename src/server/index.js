@@ -1,25 +1,27 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path'); // You forgot to require this
 
 const routes = require('./routes');
+
 const server = express();
 const port = 3001;
 
+// Middleware
 server.use(cors());
-server.use(express.urlencoded({extended: false}));
 server.use(express.json());
+server.use(express.urlencoded({ extended: false }));
 
-server.get('/', (req, res) => {res.send("Hello")});
+// Serve static files (like uploaded images)
+server.use('/images', express.static(path.join(__dirname, '../../public/images')));
+
+// Routes
+server.get('/', (req, res) => {
+  res.send("Hello");
+});
 server.use('/', routes);
 
-server.listen(port, ()=> {
-    console.log(`server running on port ${port}`);
+// Start server
+server.listen(port, () => {
+  console.log(`server running on port ${port}`);
 });
-
-
-
-// npm install express
-// npm install cors
-// npm install mysql
-// npm install nodemon
-// npx nodemon /src/server/index.js

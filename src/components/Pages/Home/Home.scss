@@ -2,3 +2,14 @@
     max-height: 300px;
     object-fit: cover;
   }
+
+.item-image {
+  width: 100%;
+  max-width: 150px; // or whatever width works well for your layout
+  height: 150px; // fixed height for consistency
+  object-fit: contain; // or 'cover' depending on preference
+  padding: 8px;
+  background-color: #fff; // optional, makes transparent images look good
+  border-radius: 8px; // optional for rounded corners
+  box-sizing: border-box;
+}
